@@ -1,25 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
-    />
-  </head>
-  <body>
-    <h2>Type what you will</h2>
-    <label>Passage</label>
-    <progress class="progress" value="2" max="100"></progress>
-    <div class="control">
-      <textarea
-        class="textarea is-hovered"
-        placeholder="Normal textarea"
-        rows="23"
-      ></textarea>
-      <div class="buttons">
-        <button class="button is-primary">Do It!</button>
-        <button class="button is-danger">or not</button>
-      </div>
-    </div>
-  </body>
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+		<script>
+			function saveText() {
+				// Get the text content from the text area
+				const text = document.getElementById('myTextarea').value;
+
+				// Save the text to local storage
+				localStorage.setItem('savedText', text);
+
+				// Optionally, provide feedback to the user
+				alert('Text saved to local storage!');
+			}
+
+			window.onload = function () {
+				// Retrieve the saved text from local storage
+				const savedText = localStorage.getItem('savedText');
+
+				// If there is saved text, display it in the text area
+				if (savedText) {
+					document.getElementById('myTextarea').value = savedText;
+					alert('Saved text found.\n loaded!');
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<h2>Type what you will</h2>
+		<label>Passage</label>
+		<progress class="progress" value="2" max="100"></progress>
+		<div class="control">
+			<textarea
+				id="myTextarea"
+				class="textarea is-hovered"
+				placeholder="Your notes go here"
+				rows="23"
+			></textarea>
+			<div class="buttons">
+				<button class="button is-primary" onclick="saveText()">Do It!</button>
+				<button class="button is-danger">or not</button>
+			</div>
+		</div>
+	</body>
 </html>

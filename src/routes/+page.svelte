@@ -1,2 +1,2 @@
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<p>Do you want to open a <a href='index.html'>Sticky slinker</a></p>
