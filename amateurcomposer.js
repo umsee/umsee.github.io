@@ -9,11 +9,15 @@ spawnButton.addEventListener('click', async () => {
 	// Create a new div element
 	const newComponent = document.createElement('div');
 	newComponent.className = 'grid-item';
+	newComponent.id = 'note_' + Date.now();
 
-	// Set the inner HTML of the new div element to the fetched content
+	//Clears the text previously there
+	newComponent.textContent = '';
+
+	// The content of the input is simultaneously cast into the element
 	newComponent.innerHTML = html;
-
-	// Append the new component to the container
-	container.appendChild(newComponent);
+	// Append the new component to the container as the first element
+	container.insertBefore(newComponent, container.firstChild);
+	newComponent.focus();
 	console.log('processing done');
 });
